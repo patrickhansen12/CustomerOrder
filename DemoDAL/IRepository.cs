@@ -8,7 +8,7 @@ namespace DemoDAL
     public interface IRepository<IEntity>
     {
         //C
-        IEntity Create(IEntity address);
+        IEntity Create(IEntity ent);
         //R
         IEnumerable<IEntity> GetAll();
         IEnumerable<IEntity> GetAllById(List<int> ids);

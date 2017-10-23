@@ -3,17 +3,17 @@ using System.Collections.Generic;
 
 namespace DemoBLL
 {
-    public interface IService<IEntity>
+    public interface IService<IBusinessObject>
     {
         //C
-        IEntity Create(IEntity cust);
+        IBusinessObject Create(IBusinessObject bo);
         //R
-        List<IEntity> GetAll();
-        IEntity Get(int Id);
+        List<IBusinessObject> GetAll();
+        IBusinessObject Get(int Id);
         //U
-        IEntity Update(IEntity cust);
+        IBusinessObject Update(IBusinessObject bo);
         //D
-        IEntity Delete(int Id);
+        IBusinessObject Delete(int Id);
     }
     
 }
