@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using DemoDAL.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace DemoDAL.Context
 {
@@ -11,7 +12,7 @@ namespace DemoDAL.Context
             base.OnModelCreating(modelBuilder);
         }
 
-        //public DbSet<Entity> Entites { get; set; }
-       
+        public DbSet<Customer> Customers { get; set; }
+
     }
 }
