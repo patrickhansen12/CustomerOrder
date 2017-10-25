@@ -1,5 +1,5 @@
 ﻿using System;
-namespace DemoDAL
+namespace DemoDAL.Entities
 {
     interface IEntity
     {
