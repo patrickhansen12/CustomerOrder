@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DemoDAL.Repositories
 {
-    interface ICustomerRepository : IRepository<Customer>
+    public interface ICustomerRepository : IRepository<Customer>
     {
     }
 }

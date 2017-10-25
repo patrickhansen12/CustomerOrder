@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DemoBLL.Services
 {
-    interface ICustomerService : IService<ICustomerBO>
+    interface ICustomerService : IService<CustomerBO>
     {
 
     }
