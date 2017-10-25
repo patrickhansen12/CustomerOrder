@@ -1,5 +1,6 @@
-﻿using System;
-namespace DemoDAL
+﻿using DemoDAL.UOW;
+using System;
+namespace DemoDAL.Facade
 {
     public interface IDALFacade
     {

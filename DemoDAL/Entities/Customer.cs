@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DemoDAL.Entities
 {
-    class Customer : ICustomer
+    public class Customer : ICustomer
     {
         public int Id { get; set; }
         public String FirstName { get; set; }
