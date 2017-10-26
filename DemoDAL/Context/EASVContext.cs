@@ -5,7 +5,12 @@ namespace DemoDAL.Context
 {
     class EASVContext : DbContext
     {
-        public EASVContext(DbContextOptions<EASVContext> options): base(options)  { }
+        static DbContextOptions<EASVContext> options =
+            new DbContextOptionsBuilder<EASVContext>()
+                .UseInMemoryDatabase("TheDB").Options;
+
+        public EASVContext() : base(options) { }
+        //public EASVContext(DbContextOptions<EASVContext> options): base(options)  { }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

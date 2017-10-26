@@ -10,7 +10,7 @@ namespace DemoDAL.UOW
         public ICustomerRepository CustomerRepository { get; internal set; }
 
         private EASVContext context;
-        private static DbContextOptions<EASVContext> optionsStatic;
+        /*private static DbContextOptions<EASVContext> optionsStatic;
            
         public UnitOfWork(DbOptions opt)
         {
@@ -28,6 +28,14 @@ namespace DemoDAL.UOW
             }
 
             CustomerRepository = new CustomerRepository(context);
+        }*/
+
+        public UnitOfWork()
+        {
+            context = new EASVContext();
+            context.Database.EnsureCreated();
+            CustomerRepository = new CustomerRepository(context);
+
         }
 
         public int Complete()

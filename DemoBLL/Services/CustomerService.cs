@@ -14,6 +14,11 @@ namespace DemoBLL.Services
 
         private DALFacade _facade;
 
+        public CustomerService(DALFacade _facade)
+        {
+            this._facade = _facade;
+        }
+
         public CustomerBO Create(CustomerBO cust)
         {
             using (var uow = _facade.UnitOfWork)
