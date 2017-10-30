@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DemoDAL.Entities
+namespace DemoBLL.BusinessObjects
 {
-    interface IOrder : IEntity
+    interface IOrderBO : IBusinessObject
     {
         DateTime OrderDate { get; set; }
         DateTime DeliveryDate { get; set; }

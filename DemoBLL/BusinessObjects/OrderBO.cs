@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DemoDAL.Entities
+namespace DemoBLL.BusinessObjects
 {
-    public class Order : IOrder
+    public class OrderBO : IOrderBO
     {
         public int Id { get; set; }
         public DateTime OrderDate { get; set; }

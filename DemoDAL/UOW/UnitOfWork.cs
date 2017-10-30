@@ -8,6 +8,7 @@ namespace DemoDAL.UOW
     public class UnitOfWork : IUnitOfWork
     {
         public ICustomerRepository CustomerRepository { get; internal set; }
+        public IOrderRepository OrderRepository { get; internal set; }
 
         private EASVContext context;
         /*private static DbContextOptions<EASVContext> optionsStatic;
@@ -35,6 +36,7 @@ namespace DemoDAL.UOW
             context = new EASVContext();
             context.Database.EnsureCreated();
             CustomerRepository = new CustomerRepository(context);
+            OrderRepository = new OrderRepository(context);
 
         }
 
