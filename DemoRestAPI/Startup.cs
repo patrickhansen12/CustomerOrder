@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using System;
 
 namespace CustomerRestAPI
 {
@@ -60,6 +61,12 @@ namespace CustomerRestAPI
                     LastName = "Persono",
                     Address = "Oveerdeer"
                 });
+                facade.OrderService.Create(new OrderBO
+                {
+                    OrderDate = DateTime.Now.AddDays(-1),
+                    DeliveryDate = DateTime.Now.AddDays(1)   
+                });
+
             }
 
             app.UseMvc();
