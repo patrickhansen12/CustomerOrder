@@ -10,7 +10,5 @@
 
   <ItemGroup>
     <Folder Include="Facade\" />
-    <Folder Include="BusinessObjects\" />
-    <Folder Include="Services\" />
   </ItemGroup>
 </Project>

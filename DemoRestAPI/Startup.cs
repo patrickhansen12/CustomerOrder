@@ -1,10 +1,12 @@
 ﻿using DemoBLL;
+using DemoBLL.BusinessObjects;
 using DemoBLL.Facade;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using System;
 
 namespace CustomerRestAPI
 {
@@ -46,13 +48,25 @@ namespace CustomerRestAPI
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            
             if (env.IsDevelopment())
             {
 				loggerFactory.AddConsole(Configuration.GetSection("Logging"));
 				loggerFactory.AddDebug();
 
 				app.UseDeveloperExceptionPage();
+                var facade = new BLLFacade();
+                var customer = facade.CustomerService.Create(new CustomerBO
+                {
+                    FirstName = "Rando",
+                    LastName = "Persono",
+                    Address = "Oveerdeer"
+                });
+                facade.OrderService.Create(new OrderBO
+                {
+                    OrderDate = DateTime.Now.AddDays(-1),
+                    DeliveryDate = DateTime.Now.AddDays(1)   
+                });
+
             }
 
             app.UseMvc();

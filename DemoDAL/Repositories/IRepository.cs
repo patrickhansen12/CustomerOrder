@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DemoDAL
+namespace DemoDAL.Repositories
 {
     public interface IRepository<IEntity>
     {

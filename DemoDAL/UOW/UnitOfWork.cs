@@ -1,14 +1,17 @@
 ﻿using System;
 using DemoDAL.Context;
 using Microsoft.EntityFrameworkCore;
+using DemoDAL.Repositories;
 
 namespace DemoDAL.UOW
 {
     public class UnitOfWork : IUnitOfWork
     {
-        // public ICustomerRepository CustomerRepository { get; internal set; }
+        public ICustomerRepository CustomerRepository { get; internal set; }
+        public IOrderRepository OrderRepository { get; internal set; }
+
         private EASVContext context;
-        private static DbContextOptions<EASVContext> optionsStatic;
+        /*private static DbContextOptions<EASVContext> optionsStatic;
            
         public UnitOfWork(DbOptions opt)
         {
@@ -25,7 +28,16 @@ namespace DemoDAL.UOW
                 context = new EASVContext(options);
             }
 
-            //CustomerRepository = new CustomerRepository(context);
+            CustomerRepository = new CustomerRepository(context);
+        }*/
+
+        public UnitOfWork()
+        {
+            context = new EASVContext();
+            context.Database.EnsureCreated();
+            CustomerRepository = new CustomerRepository(context);
+            OrderRepository = new OrderRepository(context);
+
         }
 
         public int Complete()

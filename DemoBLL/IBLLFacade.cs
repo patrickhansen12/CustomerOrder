@@ -1,8 +1,10 @@
-﻿using System;
+﻿using DemoBLL.Services;
+using System;
 namespace DemoBLL
 {
     public interface IBLLFacade
     {
-        //ICustomerService CustomerService { get { return new CustomerService(facade); }
+        ICustomerService CustomerService { get; }
+        IOrderService OrderService { get; }
     }
 }

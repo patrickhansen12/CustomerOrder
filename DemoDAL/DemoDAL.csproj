@@ -8,17 +8,9 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="2.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.0.0" />
   </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="UOW\" />
-    <Folder Include="Facade\" />
-  </ItemGroup>
   <ItemGroup>
     <Compile Remove="Entities\Address.cs" />
-    <Compile Remove="Entities\Customer.cs" />
     <Compile Remove="Entities\CustomerAddress.cs" />
-    <Compile Remove="Entities\Order.cs" />
-    <Compile Remove="Repositories\CustomerRepository.cs" />
     <Compile Remove="Repositories\CustomerRepositoryFakeDB.cs" />
   </ItemGroup>
 </Project>

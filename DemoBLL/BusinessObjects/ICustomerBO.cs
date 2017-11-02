@@ -1,11 +1,10 @@
-﻿using DemoDAL.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DemoDAL.Entities
+namespace DemoBLL.BusinessObjects
 {
-    interface ICustomer : IEntity
+    interface ICustomerBO : IBusinessObject
     {
         String FirstName { get; set; }
         String LastName { get; set; }
