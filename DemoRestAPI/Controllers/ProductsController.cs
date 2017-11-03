@@ -10,46 +10,46 @@ namespace DemoRestAPI.Controllers
     [EnableCors("MyPolicy")]
     [Produces("application/json")]
     [Route("api/[controller]")]
-    public class CustomersController : Controller
+    public class ProductsController : Controller
     {
         BLLFacade facade = new BLLFacade();
         // GET: api/values
         [HttpGet]
-        public IEnumerable<CustomerBO> Get()
+        public IEnumerable<ProductBO> Get()
         {
-            return facade.CustomerService.GetAll();
+            return facade.ProductService.GetAll();
         }
 
         // GET
         [HttpGet("{id}")]
-        public CustomerBO Get(int id)
+        public ProductBO Get(int id)
         {
-            return facade.CustomerService.Get(id);
+            return facade.ProductService.Get(id);
         }
 
         // POST
         [HttpPost]
-        public IActionResult Post([FromBody]CustomerBO cust)
+        public IActionResult Post([FromBody]ProductBO product)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            return Ok(facade.CustomerService.Create(cust));
+            return Ok(facade.ProductService.Create(product));
         }
 
         // PUT
         [HttpPut("{id}")]
-        public IActionResult Put(int id, [FromBody]CustomerBO cust)
+        public IActionResult Put(int id, [FromBody]ProductBO product)
         {
-            if (id != cust.Id)
+            if (id != product.Id)
             {
-                return StatusCode(405, "Path Id does not match Customer Id in json object");
+                return StatusCode(405, "Path Id does not match Product Id in json object");
             }
             try
             {
-                var customerUpdated = facade.CustomerService.Update(cust);
-                return Ok(customerUpdated);
+                var productUpdated = facade.ProductService.Update(product);
+                return Ok(productUpdated);
             }
             catch (InvalidOperationException e)
             {
@@ -61,7 +61,7 @@ namespace DemoRestAPI.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            facade.CustomerService.Delete(id);
+            facade.ProductService.Delete(id);
         }
     }
 }

@@ -1,8 +1,5 @@
 ﻿using DemoBLL.BusinessObjects;
 using DemoDAL.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace DemoBLL.Converters
 {

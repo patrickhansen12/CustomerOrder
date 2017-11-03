@@ -35,7 +35,7 @@ namespace CustomerRestAPI
             services.AddMvc();
 
 			services.AddCors(o => o.AddPolicy("MyPolicy", builder => {
-				builder.WithOrigins("http://localhost:4200")
+				builder.WithOrigins("http://localhost:4200/customers")
 					   .AllowAnyMethod()
 					   .AllowAnyHeader();
 			}));
@@ -60,6 +60,30 @@ namespace CustomerRestAPI
                     FirstName = "Rando",
                     LastName = "Persono",
                     Address = "Oveerdeer"
+                });
+                var customer2 = facade.CustomerService.Create(new CustomerBO
+                {
+                    FirstName = "Arne",
+                    LastName = "Olesen",
+                    Address = "Danmarksgade 11"
+                });
+                var customer3 = facade.CustomerService.Create(new CustomerBO
+                {
+                    FirstName = "Sidsel",
+                    LastName = "Frandsen",
+                    Address = "Havnegade 13"
+                });
+                var customer4 = facade.CustomerService.Create(new CustomerBO
+                {
+                    FirstName = "Ulrik",
+                    LastName = "Madsen",
+                    Address = "Kirkegade 80"
+                });
+                var customer5 = facade.CustomerService.Create(new CustomerBO
+                {
+                    FirstName = "Hermann",
+                    LastName = "Henningsen",
+                    Address = "Strandby Kirkevej 50"
                 });
                 facade.OrderService.Create(new OrderBO
                 {
