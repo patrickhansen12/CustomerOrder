@@ -44,6 +44,8 @@ namespace DemoBLL.Services
             using (var uow = _facade.UnitOfWork)
             {
                 var orderEntity = uow.OrderRepository.Get(Id);
+                var customerEntity = uow.CustomerRepository.Get(Id);
+                orderEntity.Customer = uow.CustomerRepository.Get(orderEntity.CustomerId);
                 return conv.Convert(orderEntity);
             }
         }
@@ -67,7 +69,9 @@ namespace DemoBLL.Services
                 }
                 orderEntity.OrderDate = order.OrderDate;
                 orderEntity.DeliveryDate = order.DeliveryDate;
+                orderEntity.CustomerId = order.CustomerId;
                 uow.Complete();
+                orderEntity.Customer = uow.CustomerRepository.Get(orderEntity.CustomerId);
                 return conv.Convert(orderEntity);
             }
         }

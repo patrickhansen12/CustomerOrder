@@ -64,7 +64,8 @@ namespace CustomerRestAPI
                 facade.OrderService.Create(new OrderBO
                 {
                     OrderDate = DateTime.Now.AddDays(-1),
-                    DeliveryDate = DateTime.Now.AddDays(1)   
+                    DeliveryDate = DateTime.Now.AddDays(1),
+                    CustomerId = customer.Id
                 });
 
             }

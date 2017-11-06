@@ -15,7 +15,8 @@ namespace DemoBLL.Converters
             {
                 Id = order.Id,
                 OrderDate = order.OrderDate,
-                DeliveryDate = order.OrderDate
+                DeliveryDate = order.OrderDate,
+                CustomerId = order.CustomerId
             };
         }
 
@@ -26,7 +27,9 @@ namespace DemoBLL.Converters
             {
                 Id = order.Id,
                 OrderDate = order.OrderDate,
-                DeliveryDate = order.DeliveryDate
+                DeliveryDate = order.DeliveryDate,
+                Customer = new CustomerConverter().Convert(order.Customer),
+                CustomerId = order.CustomerId
             };
         }
     }
