@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System;
+using System.Collections.Generic;
 
 namespace CustomerRestAPI
 {
@@ -55,6 +56,7 @@ namespace CustomerRestAPI
 
 				app.UseDeveloperExceptionPage();
                 var facade = new BLLFacade();
+
                 var customer = facade.CustomerService.Create(new CustomerBO
                 {
                     FirstName = "Rando",
@@ -85,13 +87,12 @@ namespace CustomerRestAPI
                     LastName = "Henningsen",
                     Address = "Strandby Kirkevej 50"
                 });
-                facade.OrderService.Create(new OrderBO
+                var order1 = facade.OrderService.Create(new OrderBO
                 {
                     OrderDate = DateTime.Now.AddDays(-1),
                     DeliveryDate = DateTime.Now.AddDays(1),
-                    CustomerId = customer.Id
+                    Customer = customer3
                 });
-
             }
 
             app.UseMvc();

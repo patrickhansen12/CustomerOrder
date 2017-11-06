@@ -1,5 +1,6 @@
 ﻿using DemoDAL.Context;
 using DemoDAL.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,11 @@ namespace DemoDAL.Repositories
 
         public Order Create(Order order)
         {
+            if (order.Customer != null)
+            {
+                _context.Entry(order.Customer).State =
+                    EntityState.Unchanged;
+            }
             _context.Orders.Add(order);
             return order;
         }

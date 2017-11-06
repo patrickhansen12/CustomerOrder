@@ -1,5 +1,6 @@
 ﻿using DemoBLL.BusinessObjects;
 using DemoDAL.Entities;
+using System.Linq;
 
 namespace DemoBLL.Converters
 {
@@ -25,7 +26,7 @@ namespace DemoBLL.Converters
                 Id = customer.Id,
                 FirstName = customer.FirstName,
                 LastName = customer.LastName,
-                Address = customer.Address
+                Address = customer.Address,
             };
         }
     }

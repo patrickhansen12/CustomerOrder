@@ -5,6 +5,7 @@ namespace DemoBLL.Converters
 {
     public class OrderConverter : IConverter<Order, OrderBO>
     {
+
         public Order Convert(OrderBO order)
         {
             if (order == null) { return null; }
@@ -13,6 +14,7 @@ namespace DemoBLL.Converters
                 Id = order.Id,
                 OrderDate = order.OrderDate,
                 DeliveryDate = order.OrderDate,
+                Customer = new CustomerConverter().Convert(order.Customer),
                 CustomerId = order.CustomerId
             };
         }

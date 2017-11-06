@@ -4,6 +4,7 @@ using System.Text;
 using DemoDAL.Entities;
 using DemoDAL.Context;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace DemoDAL.Repositories
 {
@@ -30,12 +31,14 @@ namespace DemoDAL.Repositories
 
         public Customer Get(int Id)
         {
-            return _context.Customers.FirstOrDefault(c => c.Id == Id);
+            return _context.Customers.Include(c => c.Orders).FirstOrDefault(c => c.Id == Id);
         }
 
         public IEnumerable<Customer> GetAll()
         {
-            return _context.Customers.ToList();
+            return _context.Customers
+                .Include(c => c.Orders)
+                .ToList();
         }
 
         public IEnumerable<Customer> GetAllById(List<int> ids)

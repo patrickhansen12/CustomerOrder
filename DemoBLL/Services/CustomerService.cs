@@ -11,6 +11,7 @@ namespace DemoBLL.Services
     class CustomerService : ICustomerService
     {
         CustomerConverter conv = new CustomerConverter();
+        OrderConverter oConv = new OrderConverter();
 
         private DALFacade _facade;
 
@@ -43,8 +44,8 @@ namespace DemoBLL.Services
         {
             using (var uow = _facade.UnitOfWork)
             {
-                var customerEntity = uow.CustomerRepository.Get(Id);
-                return conv.Convert(customerEntity);
+                var cust = conv.Convert(uow.CustomerRepository.Get(Id));
+                return cust;
             }
         }
 
@@ -65,9 +66,11 @@ namespace DemoBLL.Services
                 {
                     throw new InvalidOperationException("customer not found");
                 }
+                var customerUpdated = conv.Convert(cust);
                 customerEntity.FirstName = cust.FirstName;
                 customerEntity.LastName = cust.LastName;
                 customerEntity.Address = cust.Address;
+
                 uow.Complete();
                 return conv.Convert(customerEntity);
             }

@@ -1,4 +1,6 @@
-﻿namespace DemoBLL.BusinessObjects
+﻿using System.Collections.Generic;
+
+namespace DemoBLL.BusinessObjects
 {
     public class CustomerBO : ICustomerBO
     {
