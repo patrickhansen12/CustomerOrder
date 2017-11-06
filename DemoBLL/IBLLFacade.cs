@@ -6,5 +6,7 @@ namespace DemoBLL
     {
         ICustomerService CustomerService { get; }
         IOrderService OrderService { get; }
+        IProductService ProductService { get; }
+
     }
 }

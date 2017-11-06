@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace DemoBLL.BusinessObjects
+﻿namespace DemoBLL.BusinessObjects
 {
     public class CustomerBO : ICustomerBO
     {

@@ -1,8 +1,5 @@
-﻿using System;
-using Microsoft.Extensions.Configuration;
-using DemoDAL;
+﻿using DemoBLL.Services;
 using DemoDAL.Facade;
-using DemoBLL.Services;
 
 namespace DemoBLL.Facade
 {
@@ -26,6 +23,11 @@ namespace DemoBLL.Facade
         public IOrderService OrderService
         {
             get { return new OrderService(new DALFacade()); }
+        }
+
+        public IProductService ProductService
+        {
+            get { return new ProductService(new DALFacade());}
         }
     }
 }
