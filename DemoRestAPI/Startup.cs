@@ -91,7 +91,7 @@ namespace CustomerRestAPI
                 {
                     OrderDate = DateTime.Now.AddDays(-1),
                     DeliveryDate = DateTime.Now.AddDays(1),
-                    Customer = customer3
+                    CustomerId = customer.Id
                 });
             }
 
