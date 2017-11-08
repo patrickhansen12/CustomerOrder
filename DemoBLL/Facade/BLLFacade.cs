@@ -25,6 +25,11 @@ namespace DemoBLL.Facade
             get { return new OrderService(new DALFacade()); }
         }
 
+        public IAddressService AddressService
+        {
+            get { return new AddressService(new DALFacade()); }
+        }
+
         public IProductService ProductService
         {
             get { return new ProductService(new DALFacade());}

@@ -9,6 +9,7 @@ namespace DemoDAL.UOW
     {
         public ICustomerRepository CustomerRepository { get; internal set; }
         public IOrderRepository OrderRepository { get; internal set; }
+        public IAddressRepository AddressRepository { get; internal set; }
         public IProductRepository ProductRepository { get; internal set; }
 
         private EASVContext context;
@@ -39,6 +40,7 @@ namespace DemoDAL.UOW
             CustomerRepository = new CustomerRepository(context);
             OrderRepository = new OrderRepository(context);
             ProductRepository = new ProductRepository(context);
+            AddressRepository = new AddressRepository(context);
 
         }
 

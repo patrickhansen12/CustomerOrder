@@ -8,6 +8,5 @@ namespace DemoBLL.BusinessObjects
     {
         String FirstName { get; set; }
         String LastName { get; set; }
-        String Address { get; set; }
     }
 }

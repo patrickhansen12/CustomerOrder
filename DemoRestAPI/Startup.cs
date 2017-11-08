@@ -57,35 +57,43 @@ namespace CustomerRestAPI
 				app.UseDeveloperExceptionPage();
                 var facade = new BLLFacade();
 
+                var address = facade.AddressService.Create(
+                    new AddressBO()
+                    {
+                        City = "Esbjerg",
+                        Street = "Niels Bohrs vej",
+                        Number = "14"
+                    });
+
                 var customer = facade.CustomerService.Create(new CustomerBO
                 {
                     FirstName = "Rando",
                     LastName = "Persono",
-                    Address = "Oveerdeer"
+                    Addresses = new List<AddressBO>() { address }
                 });
                 var customer2 = facade.CustomerService.Create(new CustomerBO
                 {
                     FirstName = "Arne",
                     LastName = "Olesen",
-                    Address = "Danmarksgade 11"
+                    Addresses = new List<AddressBO>() { address }
                 });
                 var customer3 = facade.CustomerService.Create(new CustomerBO
                 {
                     FirstName = "Sidsel",
                     LastName = "Frandsen",
-                    Address = "Havnegade 13"
+                    Addresses = new List<AddressBO>() { address }
                 });
                 var customer4 = facade.CustomerService.Create(new CustomerBO
                 {
                     FirstName = "Ulrik",
                     LastName = "Madsen",
-                    Address = "Kirkegade 80"
+                    Addresses = new List<AddressBO>() { address }
                 });
                 var customer5 = facade.CustomerService.Create(new CustomerBO
                 {
                     FirstName = "Hermann",
                     LastName = "Henningsen",
-                    Address = "Strandby Kirkevej 50"
+                    Addresses = new List<AddressBO>() { address }
                 });
                 var order1 = facade.OrderService.Create(new OrderBO
                 {

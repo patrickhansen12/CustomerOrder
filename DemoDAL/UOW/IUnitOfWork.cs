@@ -6,6 +6,7 @@ namespace DemoDAL.UOW
     {
         ICustomerRepository CustomerRepository { get; }
         IOrderRepository OrderRepository { get; }
+        IAddressRepository AddressRepository { get; }
         IProductRepository ProductRepository { get; }
 
         int Complete();

@@ -37,7 +37,8 @@ namespace DemoDAL.Repositories
         public IEnumerable<Customer> GetAll()
         {
             return _context.Customers
-                .Include(c => c.Orders)
+                .Include(c => c.Addresses)
+                .ThenInclude(ca => ca.Address)
                 .ToList();
         }
 

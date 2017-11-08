@@ -6,6 +6,13 @@ namespace DemoBLL.Converters
 {
     public class CustomerConverter : IConverter<Customer, CustomerBO>
     {
+        private AddressConverter aConv;
+
+        public CustomerConverter()
+        {
+            aConv = new AddressConverter();
+        }
+
         public Customer Convert(CustomerBO customer)
         {
             if (customer == null) { return null; }
@@ -14,7 +21,11 @@ namespace DemoBLL.Converters
                 Id = customer.Id,
                 FirstName = customer.FirstName,
                 LastName = customer.LastName,
-                Address = customer.Address
+                Addresses = customer.Addresses?.Select(a => new CustomerAddress()
+                {
+                    AddressId = a.Id,
+                    CustomerId = customer.Id
+                }).ToList()
             };
         }
 
@@ -26,7 +37,13 @@ namespace DemoBLL.Converters
                 Id = customer.Id,
                 FirstName = customer.FirstName,
                 LastName = customer.LastName,
-                Address = customer.Address,
+                Addresses = customer.Addresses?.Select( a => new AddressBO()
+                {
+                    Id = a.CustomerId,
+                    City = a.Address?.City,
+                    Number = a.Address?.Number,
+                    Street = a.Address?.Street
+                }).ToList()
             };
         }
     }

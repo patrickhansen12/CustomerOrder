@@ -67,9 +67,9 @@ namespace DemoBLL.Services
                     throw new InvalidOperationException("customer not found");
                 }
                 var customerUpdated = conv.Convert(cust);
-                customerEntity.FirstName = cust.FirstName;
-                customerEntity.LastName = cust.LastName;
-                customerEntity.Address = cust.Address;
+                customerEntity.FirstName = customerUpdated.FirstName;
+                customerEntity.LastName = customerUpdated.LastName;
+                customerEntity.Addresses = customerUpdated.Addresses;
 
                 uow.Complete();
                 return conv.Convert(customerEntity);

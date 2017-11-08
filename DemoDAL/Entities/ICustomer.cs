@@ -6,6 +6,5 @@ namespace DemoDAL.Entities
     {
         String FirstName { get; set; }
         String LastName { get; set; }
-        String Address { get; set; }
     }
 }
