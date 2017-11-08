@@ -8,6 +8,7 @@ namespace DemoBLL.BusinessObjects
         public string FirstName { get; set; }
         public string LastName { get; set; }
         
+        public List<int> AddressIds { get; set; }
         public List<AddressBO> Addresses { get; set; }
     }
 }

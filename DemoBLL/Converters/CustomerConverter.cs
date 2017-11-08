@@ -21,9 +21,9 @@ namespace DemoBLL.Converters
                 Id = customer.Id,
                 FirstName = customer.FirstName,
                 LastName = customer.LastName,
-                Addresses = customer.Addresses?.Select(a => new CustomerAddress()
+                Addresses = customer.AddressIds?.Select(aId => new CustomerAddress()
                 {
-                    AddressId = a.Id,
+                    AddressId = aId,
                     CustomerId = customer.Id
                 }).ToList()
             };
@@ -35,15 +35,9 @@ namespace DemoBLL.Converters
             return new CustomerBO()
             {
                 Id = customer.Id,
+                AddressIds = customer.Addresses?.Select(a => a.AddressId).ToList(),
                 FirstName = customer.FirstName,
                 LastName = customer.LastName,
-                Addresses = customer.Addresses?.Select( a => new AddressBO()
-                {
-                    Id = a.CustomerId,
-                    City = a.Address?.City,
-                    Number = a.Address?.Number,
-                    Street = a.Address?.Street
-                }).ToList()
             };
         }
     }

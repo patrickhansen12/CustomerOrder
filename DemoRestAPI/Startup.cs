@@ -69,31 +69,31 @@ namespace CustomerRestAPI
                 {
                     FirstName = "Rando",
                     LastName = "Persono",
-                    Addresses = new List<AddressBO>() { address }
+                    AddressIds = new List<int>() { address.Id }
                 });
                 var customer2 = facade.CustomerService.Create(new CustomerBO
                 {
                     FirstName = "Arne",
                     LastName = "Olesen",
-                    Addresses = new List<AddressBO>() { address }
+                    AddressIds = new List<int>() { address.Id }
                 });
                 var customer3 = facade.CustomerService.Create(new CustomerBO
                 {
                     FirstName = "Sidsel",
                     LastName = "Frandsen",
-                    Addresses = new List<AddressBO>() { address }
+                    AddressIds = new List<int>() { address.Id }
                 });
                 var customer4 = facade.CustomerService.Create(new CustomerBO
                 {
                     FirstName = "Ulrik",
                     LastName = "Madsen",
-                    Addresses = new List<AddressBO>() { address }
+                    AddressIds = new List<int>() { address.Id }
                 });
                 var customer5 = facade.CustomerService.Create(new CustomerBO
                 {
                     FirstName = "Hermann",
                     LastName = "Henningsen",
-                    Addresses = new List<AddressBO>() { address }
+                    AddressIds = new List<int>() { address.Id }
                 });
                 var order1 = facade.OrderService.Create(new OrderBO
                 {

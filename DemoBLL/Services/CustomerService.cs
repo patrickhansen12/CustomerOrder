@@ -12,6 +12,7 @@ namespace DemoBLL.Services
     {
         CustomerConverter conv = new CustomerConverter();
         OrderConverter oConv = new OrderConverter();
+        AddressConverter aConv = new AddressConverter();
 
         private DALFacade _facade;
 
@@ -45,6 +46,15 @@ namespace DemoBLL.Services
             using (var uow = _facade.UnitOfWork)
             {
                 var cust = conv.Convert(uow.CustomerRepository.Get(Id));
+
+                /*cust.Addresses = cust.AddressIds
+                    .Select(id => aConv.Convert(uow.AddressRepository.Get(id)))
+                    .ToList();*/
+
+                cust.Addresses = uow.AddressRepository.GetAllById(cust.AddressIds)
+                    .Select(a => aConv.Convert(a))
+                    .ToList();
+
                 return cust;
             }
         }

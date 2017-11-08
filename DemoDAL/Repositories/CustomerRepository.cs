@@ -31,14 +31,13 @@ namespace DemoDAL.Repositories
 
         public Customer Get(int Id)
         {
-            return _context.Customers.Include(c => c.Orders).FirstOrDefault(c => c.Id == Id);
+            return _context.Customers.Include(c => c.Addresses).FirstOrDefault(c => c.Id == Id);
         }
 
         public IEnumerable<Customer> GetAll()
         {
             return _context.Customers
                 .Include(c => c.Addresses)
-                .ThenInclude(ca => ca.Address)
                 .ToList();
         }
 
