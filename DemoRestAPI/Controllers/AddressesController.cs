@@ -6,11 +6,13 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using DemoBLL.Facade;
 using DemoBLL.BusinessObjects;
+using Microsoft.AspNetCore.Cors;
 
 namespace DemoRestAPI.Controllers
 {
+    [EnableCors("MyPolicy")]
     [Produces("application/json")]
-    [Route("api/Address")]
+    [Route("api/[controller]")]
     public class AddressesController : Controller
     {
 

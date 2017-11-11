@@ -12,7 +12,7 @@ namespace DemoRestAPI.Controllers
 {
     [EnableCors("MyPolicy")]
     [Produces("application/json")]
-    [Route("api/Orders")]
+    [Route("api/[controller]")]
     public class OrdersController : Controller
     {
         BLLFacade facade = new BLLFacade();
