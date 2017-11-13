@@ -25,7 +25,10 @@ namespace DemoDAL.Repositories
         public Customer Delete(int Id)
         {
             var customer = Get(Id);
-            _context.Customers.Remove(customer);
+            if (customer != null)
+            {
+                _context.Customers.Remove(customer);
+            }
             return customer;
         }
 

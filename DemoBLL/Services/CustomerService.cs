@@ -79,7 +79,19 @@ namespace DemoBLL.Services
                 var customerUpdated = conv.Convert(cust);
                 customerEntity.FirstName = customerUpdated.FirstName;
                 customerEntity.LastName = customerUpdated.LastName;
-                customerEntity.Addresses = customerUpdated.Addresses;
+
+                customerEntity.Addresses.RemoveAll(
+                    ca => customerUpdated.Addresses.Exists(
+                        a => a.AddressId == ca.AddressId &&
+                        a.CustomerId == ca.CustomerId));
+
+                customerUpdated.Addresses.RemoveAll(
+                    ca => customerEntity.Addresses.Exists(
+                        a => a.AddressId == ca.AddressId &&
+                        a.CustomerId == ca.CustomerId));
+
+                customerEntity.Addresses.AddRange(
+                    customerUpdated.Addresses);
 
                 uow.Complete();
                 return conv.Convert(customerEntity);
