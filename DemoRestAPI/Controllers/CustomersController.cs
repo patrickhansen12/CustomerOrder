@@ -59,9 +59,18 @@ namespace DemoRestAPI.Controllers
 
         // DELETE
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
-            facade.CustomerService.Delete(id);
+            try
+            {
+                var customerDelete = facade.CustomerService.Delete(id);
+                return Ok(customerDelete);
+            }
+            catch (InvalidOperationException e)
+            {
+                return StatusCode(404, e.Message);
+            }
         }
+
     }
 }
