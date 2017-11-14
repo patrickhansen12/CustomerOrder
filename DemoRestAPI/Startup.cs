@@ -57,13 +57,40 @@ namespace CustomerRestAPI
 				app.UseDeveloperExceptionPage();
                 var facade = new BLLFacade();
 
-                var address = facade.AddressService.Create(
-                    new AddressBO()
-                    {
-                        City = "Esbjerg",
-                        Street = "Niels Bohrs vej",
-                        Number = "14"
-                    });
+                var address = facade.AddressService.Create(new AddressBO
+                {
+                    City = "Esbjerg",
+                    Street = "Niels Bohrs vej",
+                    Number = "14"
+                });
+
+                var address2 = facade.AddressService.Create(new AddressBO
+                {
+                    City = "Varde",
+                    Street = "Storegade",
+                    Number = "A3"
+                });
+
+                var address3 = facade.AddressService.Create(new AddressBO
+                {
+                    City = "Ribe",
+                    Street = "Ribegade",
+                    Number = "7"
+                });
+
+                var address4 = facade.AddressService.Create(new AddressBO
+                {
+                    City = "København",
+                    Street = "Østerbrogade",
+                    Number = "3"
+                });
+
+                var address5 = facade.AddressService.Create(new AddressBO
+                {
+                    City = "Skjern",
+                    Street = "Ingenmandsvej",
+                    Number = "0"
+                });
 
                 var customer = facade.CustomerService.Create(new CustomerBO
                 {
@@ -75,25 +102,25 @@ namespace CustomerRestAPI
                 {
                     FirstName = "Arne",
                     LastName = "Olesen",
-                    AddressIds = new List<int>() { address.Id }
+                    AddressIds = new List<int>() { address2.Id, address4.Id }
                 });
                 var customer3 = facade.CustomerService.Create(new CustomerBO
                 {
                     FirstName = "Sidsel",
                     LastName = "Frandsen",
-                    AddressIds = new List<int>() { address.Id }
+                    AddressIds = new List<int>() { address3.Id }
                 });
                 var customer4 = facade.CustomerService.Create(new CustomerBO
                 {
                     FirstName = "Ulrik",
                     LastName = "Madsen",
-                    AddressIds = new List<int>() { address.Id }
+                    AddressIds = new List<int>() { address4.Id }
                 });
                 var customer5 = facade.CustomerService.Create(new CustomerBO
                 {
                     FirstName = "Hermann",
                     LastName = "Henningsen",
-                    AddressIds = new List<int>() { address.Id }
+                    AddressIds = new List<int>() { address5.Id }
                 });
                 var order1 = facade.OrderService.Create(new OrderBO
                 {

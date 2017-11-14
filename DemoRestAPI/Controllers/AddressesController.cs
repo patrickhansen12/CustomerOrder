@@ -55,7 +55,7 @@ namespace DemoRestAPI.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            facade.OrderService.Delete(id);
+            facade.AddressService.Delete(id);
         }
     }
 }
